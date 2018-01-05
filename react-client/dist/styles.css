@@ -1,0 +1,12 @@
+img {
+  margin: auto;
+  text-align: center;
+}
+
+body {
+  background-color: chocolate;
+}
+
+span + span {
+  margin-left: 8px;
+}
