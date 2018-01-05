@@ -1,10 +1,14 @@
-img {
-  margin: auto;
+.logo {
+  
   text-align: center;
 }
 
 body {
-  background-color: chocolate;
+  background-color: rgb(236, 219, 208);
+}
+
+#app {
+  text-align: center;
 }
 
 span + span {

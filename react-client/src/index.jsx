@@ -39,15 +39,17 @@ class App extends React.Component {
     $.ajax({
       url: '/cafes', 
       type: 'GET',
-      data:JSON.stringify({zipcode: '94158'}),
+      data: {zipcode: code},
+      // contentType: 'application/json',
       success: (data) => {
-        this.setState({
-          items: data
-        })
       },
       error: (err) => {
         console.log('err', err);
       }
+    }).done((data) => {
+      this.setState({
+        items: data
+      });
     });
   }
   

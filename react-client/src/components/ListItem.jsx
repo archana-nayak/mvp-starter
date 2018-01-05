@@ -1,9 +1,20 @@
 import React from 'react';
 
-const ListItem = (props) => (
-  <div>
-    { props.item.description }
-  </div>
-)
+class ListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.showDescription = this.showDescription.bind(this);
+  }
+
+  showDescription() {
+
+  }
+
+  render() {
+    return(
+    <div onClick={this.showDescription}>{this.props.item.store_name } </div>
+    );
+  }
+}
 
 export default ListItem;
