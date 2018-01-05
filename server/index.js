@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
-// vadr router = express.Router();
+// var router = express.Router();
 var db = require('../database-mysql/index.js');
 var helpers = require('../helpers/getGPlaces.js');
 let data = require('../data-files/cafes.json');
@@ -18,6 +18,7 @@ var app = express();
 // UNCOMMENT FOR REACT
 app.use(express.static(path.join(__dirname, '/../react-client/dist')));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // UNCOMMENT FOR ANGULAR
@@ -25,9 +26,11 @@ app.use(bodyParser.json());
 // app.use(express.static(__dirname + '/../node_modules'));
 
 app.get('/cafes', function (req, res) {
-  var username = req.body.username;
+  console.log('req.query ',req.query);
+  var zipcode = req.query['zipcode'];
+  console.log('In GET ', typeof zipcode);
   // [username]
-  db.selectAll([username], function(err, data) {
+  db.selectAll(zipcode, function(err, data) {
     if(err) {
       // res.status(500);
       res.send(err);
