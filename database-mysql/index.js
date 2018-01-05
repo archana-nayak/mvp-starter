@@ -16,7 +16,7 @@ connection.connect((err) => {
 });
 
 var selectAll = function(params, callback) {
-  connection.query('SELECT * FROM cafes where zipcode = ?)', function(err, results, fields) {
+  connection.query('SELECT * FROM cafes where zipcode = ?', params,function(err, results, fields) {
     if(err) {
       callback(err, null);
     } else {
